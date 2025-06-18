@@ -1,8 +1,9 @@
 package site.stellarburgers.nomoreparties.tests;
 
 import io.qameta.allure.junit4.DisplayName;
+import org.junit.After;
 import org.junit.Test;
-import site.stellarburgers.nomoreparties.User;
+import site.stellarburgers.nomoreparties.model.User;
 
 import static org.junit.Assert.assertEquals;
 
@@ -13,7 +14,6 @@ public class UserCrudTest extends BaseTest {
     public void testCreateUniqueUser() {
         response = userCrudSteps.registerUser(basicUser);
         assertEquals(200, response.getStatusCode());
-        userCrudSteps.deleteUser(basicUser.getAccessToken());
     }
 
     @Test
@@ -29,6 +29,15 @@ public class UserCrudTest extends BaseTest {
     @DisplayName("Создание пользователя без email")
     public void testCreateUserEmptyEmail() {
         response = userCrudSteps.registerUser(new User("name","", "password"));
+        assertEquals(403, response.getStatusCode());
+        assertEquals("Email, password and name are required fields",
+                response.getBody().jsonPath().getString("message"));
+    }
+
+    @Test
+    @DisplayName("Создание пользователя без пароля")
+    public void testCreateUserEmptyPassword() {
+        response = userCrudSteps.registerUser(new User("name","example", ""));
         assertEquals(403, response.getStatusCode());
         assertEquals("Email, password and name are required fields",
                 response.getBody().jsonPath().getString("message"));
@@ -65,4 +74,8 @@ public class UserCrudTest extends BaseTest {
                 response.getBody().jsonPath().getString("message"));
     }
 
+    @After
+    public void deleteBasicUser(){
+        userCrudSteps.deleteUser(basicUser.getAccessToken());
+    }
 }

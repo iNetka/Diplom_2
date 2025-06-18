@@ -1,6 +1,6 @@
-package site.stellarburgers.nomoreparties.request;
+package site.stellarburgers.nomoreparties.model.request;
 
-import site.stellarburgers.nomoreparties.User;
+import site.stellarburgers.nomoreparties.model.User;
 
 public class RegisterUserRequest {
     private String name;

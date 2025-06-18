@@ -5,7 +5,7 @@ import io.restassured.response.Response;
 
 import static io.restassured.RestAssured.given;
 import static site.stellarburgers.nomoreparties.utils.Utils.getBaseSpec;
-import static site.stellarburgers.nomoreparties.utils.Utils.getOrdersUrl;
+import static site.stellarburgers.nomoreparties.utils.Utils.ORDERS;
 
 public class UserOrderSteps {
     private final String userToken;
@@ -20,6 +20,6 @@ public class UserOrderSteps {
                 .spec(getBaseSpec())
                 .header("Authorization", this.userToken)
                 .when()
-                .get(getOrdersUrl());
+                .get(ORDERS);
     }
 }

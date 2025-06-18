@@ -2,12 +2,12 @@ package site.stellarburgers.nomoreparties.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import site.stellarburgers.nomoreparties.User;
-import site.stellarburgers.nomoreparties.request.AuthUserRequest;
+import site.stellarburgers.nomoreparties.model.User;
+import site.stellarburgers.nomoreparties.model.request.AuthUserRequest;
 
 import static io.restassured.RestAssured.given;
 import static site.stellarburgers.nomoreparties.utils.Utils.getBaseSpec;
-import static site.stellarburgers.nomoreparties.utils.Utils.getLoginUserUrl;
+import static site.stellarburgers.nomoreparties.utils.Utils.LOGIN;
 
 public class AuthSteps {
 
@@ -17,7 +17,7 @@ public class AuthSteps {
                 .spec(getBaseSpec())
                 .body(new AuthUserRequest(user))
                 .when()
-                .post(getLoginUserUrl());
+                .post(LOGIN);
     }
 
     @Step("Login user")
@@ -26,7 +26,7 @@ public class AuthSteps {
                 .spec(getBaseSpec())
                 .body(new AuthUserRequest(email, password))
                 .when()
-                .post(getLoginUserUrl());
+                .post(LOGIN);
     }
 
 }

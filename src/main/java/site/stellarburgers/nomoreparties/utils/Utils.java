@@ -7,29 +7,17 @@ import static io.restassured.http.ContentType.JSON;
 
 public final class Utils {
     private static final String BASE_URL = "https://stellarburgers.nomoreparties.site/api/";
+    public static final String INGREDIENTS = "/ingredients";
+    public static final String AUTH_USER = "/auth/user";
+    public static final String REGISTER =  "/auth/register";
+    public static final String LOGIN = "/auth/login";
 
     private Utils() {
     }
 
-    public static String getOrdersUrl() {
-        return "/orders";
-    }
+    public static final String ORDERS = "/orders";
 
-    public static String getIngredientsUrl() {
-        return "/ingredients";
-    }
 
-    public static String getAuthUserUrl() {
-        return "/auth/user";
-    }
-
-    public static String getAuthRegisterUrl() {
-        return "/auth/register";
-    }
-
-    public static String getLoginUserUrl() {
-        return "/auth/login";
-    }
 
     public static RequestSpecification getBaseSpec() {
         return new RequestSpecBuilder()

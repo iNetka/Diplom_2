@@ -1,7 +1,12 @@
-package site.stellarburgers.nomoreparties.request;
+package site.stellarburgers.nomoreparties.model.request;
 
-import site.stellarburgers.nomoreparties.User;
 
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import site.stellarburgers.nomoreparties.model.User;
+
+@Data
+@AllArgsConstructor
 public class AuthUserRequest {
     private String email;
     private String password;
@@ -9,10 +14,10 @@ public class AuthUserRequest {
     public AuthUserRequest() {
     }
 
-    public AuthUserRequest(String email, String password) {
-        this.email = email;
-        this.password = password;
-    }
+//    public AuthUserRequest(String email, String password) {
+//        this.email = email;
+//        this.password = password;
+//    }
 
     public AuthUserRequest(User user) {
         this.email = user.getEmail();

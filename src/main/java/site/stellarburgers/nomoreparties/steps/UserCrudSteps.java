@@ -2,12 +2,13 @@ package site.stellarburgers.nomoreparties.steps;
 
 import io.qameta.allure.Step;
 import io.restassured.response.Response;
-import site.stellarburgers.nomoreparties.User;
-import site.stellarburgers.nomoreparties.request.RegisterUserRequest;
-import site.stellarburgers.nomoreparties.request.UpdateUserRequest;
+import site.stellarburgers.nomoreparties.model.User;
+import site.stellarburgers.nomoreparties.model.request.RegisterUserRequest;
+import site.stellarburgers.nomoreparties.model.request.UpdateUserRequest;
 
 import static io.restassured.RestAssured.given;
 import static site.stellarburgers.nomoreparties.utils.Utils.*;
+import static site.stellarburgers.nomoreparties.utils.Utils.AUTH_USER;
 
 public class UserCrudSteps {
 
@@ -18,7 +19,7 @@ public class UserCrudSteps {
                 .spec(getBaseSpec())
                 .body(new RegisterUserRequest(user.getName(), user.getEmail(), user.getPassword()))
                 .when()
-                .post(getAuthRegisterUrl());
+                .post(REGISTER);
 
         String accessToken = response.getBody().jsonPath().getString("accessToken");
         String refreshToken = response.getBody().jsonPath().getString("refreshToken");
@@ -35,7 +36,7 @@ public class UserCrudSteps {
             given()
                     .spec(getBaseSpec())
                     .header("Authorization", token)
-                    .delete(getAuthUserUrl())
+                    .delete(AUTH_USER)
                     .then()
                     .statusCode(202);
         }
@@ -49,7 +50,7 @@ public class UserCrudSteps {
                 .header("Authorization", user.getAccessToken())
                 .body(new UpdateUserRequest(user))
                 .when()
-                .patch(getAuthUserUrl());
+                .patch(AUTH_USER);
     }
 
     @Step("Get user data")
@@ -58,6 +59,6 @@ public class UserCrudSteps {
                 .spec(getBaseSpec())
                 .header("Authorization", user.getAccessToken())
                 .when()
-                .get(getAuthUserUrl());
+                .get(AUTH_USER);
     }
 }

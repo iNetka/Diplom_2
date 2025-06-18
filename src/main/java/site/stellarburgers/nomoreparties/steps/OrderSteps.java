@@ -20,7 +20,7 @@ public class OrderSteps {
                 .header("Authorization", userToken)
                 .body(new JSONObject().put("ingredients", ingredients).toString())
                 .when()
-                .post(getOrdersUrl());
+                .post(ORDERS);
     }
 
     @Step("Get ingredients")
@@ -28,6 +28,6 @@ public class OrderSteps {
         return given()
                 .spec(getBaseSpec())
                 .when()
-                .get(getIngredientsUrl());
+                .get(INGREDIENTS);
     }
 }

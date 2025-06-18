@@ -18,9 +18,18 @@ public class AuthTest extends BaseTest {
     }
 
     @Test
-    @DisplayName("Авторизация пользователя с неверным логином и паролем")
-    public void testLoginIncorrectUser() {
-        response = authSteps.login(INCORRECT_EMAIL, INCORRECT_PASSWORD);
+    @DisplayName("Авторизация пользователя с неверным логином ")
+    public void testLoginIncorrectUserEmail() {
+        response = authSteps.login(INCORRECT_EMAIL, user.getPassword());
+        assertEquals(401, response.getStatusCode());
+        assertEquals("email or password are incorrect",
+                response.getBody().jsonPath().getString("message"));
+    }
+
+    @Test
+    @DisplayName("Авторизация пользователя с неверным паролем")
+    public void testLoginIncorrectUserPassword() {
+        response = authSteps.login(user.getEmail(), INCORRECT_PASSWORD);
         assertEquals(401, response.getStatusCode());
         assertEquals("email or password are incorrect",
                 response.getBody().jsonPath().getString("message"));

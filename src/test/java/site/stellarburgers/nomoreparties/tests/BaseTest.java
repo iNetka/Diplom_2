@@ -5,7 +5,7 @@ import io.qameta.allure.Allure;
 import io.restassured.response.Response;
 import org.junit.After;
 import org.junit.Before;
-import site.stellarburgers.nomoreparties.User;
+import site.stellarburgers.nomoreparties.model.User;
 import site.stellarburgers.nomoreparties.steps.AuthSteps;
 import site.stellarburgers.nomoreparties.steps.OrderSteps;
 import site.stellarburgers.nomoreparties.steps.UserCrudSteps;
