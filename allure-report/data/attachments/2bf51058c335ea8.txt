@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "lelah.jaskolski@hotmail.com",
-        "name": "Letty"
-    },
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGU2MDI5OWVkMjgwMDAxYjYyMTJlMSIsImlhdCI6MTc0OTk2Njg4OSwiZXhwIjoxNzQ5OTY4MDg5fQ.0Si9nJY0TDEHc9oa87EMuwXQpla5WHCTWl91xdw_wT4",
-    "refreshToken": "6083946871fd4133bf800d7634b141a82bfcb839f73cbffa8b9f674bd19ce8d3ba38b50a71461f8d"
-}

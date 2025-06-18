@@ -1,7 +1,0 @@
-{
-    "success": true,
-    "user": {
-        "email": "updated_erasmo.wolf@yahoo.com",
-        "name": "updated_Jared"
-    }
-}

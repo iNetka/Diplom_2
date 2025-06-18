@@ -1,9 +1,0 @@
-{
-    "success": true,
-    "accessToken": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY4NGU2MDE5OWVkMjgwMDAxYjYyMTJjNyIsImlhdCI6MTc0OTk2Njg3NCwiZXhwIjoxNzQ5OTY4MDc0fQ.-XSb8EIimQmDuGz6nacZffXmojQfiduul5KVyKrc0Qc",
-    "refreshToken": "e09896cfbcf203000968f0222bc9bdf1e1e49a8a1d256fe7cab69517fa7037513a8a4d3e4465b714",
-    "user": {
-        "email": "gregg.padberg@gmail.com",
-        "name": "Barbar"
-    }
-}
